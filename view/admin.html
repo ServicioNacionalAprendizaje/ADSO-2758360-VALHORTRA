@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoFastApp - Administrador</title>
+
+    <!-- Importar fuente profesional -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../asset/css/styles.css">
+
+    <!-- Cargar jQuery antes de los scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Luego carga `admin.js` -->
+    <script src="../js/admin.js" defer></script>
+</head>
+<body>
+
+    <div class="container">
+        <img src="/asset/img/logogofastgo.jpg" alt="Logo de la Empresa" class="logo">
+        <h2 class="text-center text-primary">Panel de Administrador</h2>
+        <div class="container text-center mt-4">
+            <div class="row g-3 justify-content-center">
+                <div class="col-md-4">
+                    <button class="btn btn-warning w-100" id="btnGestionUsuarios">Gestionar Usuarios</button> <!-- Amarillo -->
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-primary w-100" id="btnGestionPersonas">Gestionar Personas</button> <!-- Azul -->
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-danger w-100" id="btnGestionAdmins">Gestionar Administradores</button> <!-- Rojo -->
+                </div>
+            </div>
+            <div class="row g-3 justify-content-center mt-2">
+                <div class="col-md-4">
+                    <button class="btn btn-success w-100" id="btnGestionAgentes">Gestionar Agentes</button> <!-- Verde -->
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-info w-100" id="btnGestionTiendas">Gestionar Tiendas</button> <!-- Morado -->
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-orange w-100" id="btnAsignarTareas" style="background-color: #ff9900; border: none;">Asignar Tareas</button> <!-- Naranja -->
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-neon w-100" id="btnCodigo" style="background-color: #39ff14; color: black; border: none;">Código</button> <!-- Verde Fosforescente -->
+                </div>
+            </div>
+        
+        <div id="panel" class="mt-4 p-3 bg-white border rounded shadow">
+            <p class="text-center text-muted">Seleccione una opción para empezar</p>
+        </div>
+    </div>
+
+    <footer class="text-center py-3 ">
+        <p>&copy; 2025 Go Fast Go. Todos los derechos reservados.</p>
+    </footer>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="../js/usuario.js" defer></script>
+ 
+
+</body>
+
+
+</html>
