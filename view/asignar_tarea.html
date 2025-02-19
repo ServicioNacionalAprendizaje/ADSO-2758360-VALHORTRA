@@ -8,10 +8,11 @@
     <link rel="stylesheet" href="../asset/css/styles.css">
 </head>
 <body>
-
-    <div class="container">
-        <img src="../asset/img/logogofastgo.jpg" alt="Logo de la Empresa" class="logo">
+    <div class="container mt-4">
+        <img src="../asset/img/logogofastgo.jpg" alt="Logo de la Empresa" class="logo mb-3">
         <h2 class="text-center text-primary">Asignar Tareas</h2>
+        
+        <!-- Formulario para asignar tareas -->
         <form id="taskForm" class="mb-4 p-4 rounded shadow bg-light">
             <div class="mb-3">
                 <label for="administrador" class="form-label">Administrador</label>
@@ -36,6 +37,7 @@
             </div>
         </form>
 
+        <!-- Tabla para mostrar las tareas -->
         <table class="table table-striped table-hover rounded shadow" id="tasksTabla">
             <thead class="table-dark">
                 <tr>
@@ -44,10 +46,13 @@
                     <th>Agente</th>
                     <th>Tienda</th>
                     <th>Fecha Asignación</th>
+                    <th>Fecha Creación</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
-            <tbody></tbody>
+            <tbody>
+                <!-- Las tareas se cargarán dinámicamente aquí -->
+            </tbody>
         </table>
     </div>
 
@@ -55,14 +60,9 @@
         <p>&copy; 2025 Go Fast Go. Todos los derechos reservados.</p>
     </footer>
 
+    <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
-
-    <!-- ⚡ Se carga primero todos los datos js, luego asignar_tarea.js -->
-    <script src="../js/administrador.js"></script>
-    <script src="../js/agente.js"></script>
-    <script src="../js/tienda.js"></script>
-    <script src="../js/asignar_tarea.js"></script>
-
+    <script src="../js/asignar_tarea.js" defer></script>
 </body>
 </html>
