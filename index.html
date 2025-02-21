@@ -8,11 +8,13 @@
     <link rel="stylesheet" href="../asset/css/styles.css">
     <link rel="stylesheet" href="../asset/css/login.css">
 </head>
-<body class="d-flex flex-column min-vh-100">
-    <div class="container mt-5 flex-grow-1 d-flex flex-column align-items-center justify-content-center">
+<body class="d-flex flex-column min-vh-100 login-background">
+
+    <div class="container login-container mt-5 flex-grow-1 d-flex flex-column align-items-center justify-content-center">
+        <h1 class="text-center text-primary">GoFastApp</h1>
         <img src="../asset/img/logogofastgo.jpg" alt="Logo de la Empresa" class="logo">
-        <h2 class="text-center text-primary">GoFastApp</h2>
-        <h4 class="text-center">Iniciar Sesión</h4>
+        
+        <h4 class="text-center text-primary">Iniciar Sesion</h4>
         
         <form id="loginForm" class="mb-4 p-4 rounded shadow bg-light" onsubmit="return false;">
             <div class="mb-3">
@@ -26,13 +28,16 @@
             <button type="submit" class="btn btn-primary w-100">Ingresar</button>
             <p id="errorMessage" class="text-danger text-center mt-2" style="display: none;">Usuario o contraseña incorrectos</p>
         </form>
+
     </div>
 
     <footer class="text-center py-3 ">
         <p>&copy; 2025 Go Fast Go. Todos los derechos reservados.</p>
     </footer>
+   
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
     <script src="../js/login.js" defer></script>
 </body>
+
 </html>

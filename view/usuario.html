@@ -11,7 +11,7 @@
     <div class="container mt-5">
         <img src="../asset/img/logogofastgo.jpg" alt="Logo de la Empresa" class="logo">
         <h2 class="text-center text-primary">Gestión de Usuarios</h2>
-        
+
         <form id="usuarioForm" class="mb-4 p-4 rounded shadow bg-light" onsubmit="return false;">
             <input type="hidden" id="userId">
             <div class="mb-3">
@@ -46,7 +46,27 @@
                 <button type="button" class="btn btn-success" id="btnActualizar" onclick="actualizarUsuario()" disabled>Actualizar Usuario</button>
             </div>
         </form>
-        
+
+        <!-- Filtro de búsqueda (ubicado entre el formulario y la tabla) -->
+        <div class="mb-4 p-3 rounded shadow bg-white">
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="filterUserType" class="form-label">Filtrar por:</label>
+                    <select id="filterUserType" class="form-control">
+                        <option value="username">Usuario</option>
+                        <option value="role">Rol</option>
+                        <option value="isActive">Estado</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="filterUserInput" class="form-label">Buscar</label>
+                    <input type="text" id="filterUserInput" class="form-control" placeholder="Ingrese el valor">
+                </div>
+                <div class="col-md-4 d-flex align-items-end">
+                    <button id="filterUserButton" class="btn btn-primary w-100">Buscar</button>
+                </div>
+            </div>
+        </div>
 
         <table class="table table-striped table-hover rounded shadow" id="usuariosTabla">
             <thead class="table-dark">

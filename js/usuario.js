@@ -1,13 +1,27 @@
+// Se ejecuta cuando la página ha cargado completamente
 document.addEventListener("DOMContentLoaded", function () {
-    cargarUsuarios();
+    cargarUsuarios(); // Cargar la lista de usuarios al inicio
+
+    // Agregar evento al botón de filtro
+    document.getElementById("filterUserButton").addEventListener("click", filtrarUsuarios);
+
+    // Permitir filtrar al presionar "Enter"
+    document.getElementById("filterUserInput").addEventListener("keypress", function (event) {
+        if (event.key === "Enter") {
+            filtrarUsuarios();
+        }
+    });
 });
 
+// Función para obtener y mostrar los usuarios en la tabla
 function cargarUsuarios() {
-    fetch("http://localhost:9000/api/users")
-        .then(response => response.json())
+    fetch("http://localhost:9000/api/users") // Petición a la API de usuarios
+        .then(response => response.json()) // Convertir la respuesta a JSON
         .then(data => {
             let tbody = document.querySelector("#usuariosTabla tbody");
-            tbody.innerHTML = "";
+            tbody.innerHTML = ""; // Limpiar la tabla antes de agregar nuevos datos
+
+            // Recorrer la lista de usuarios y agregar cada uno como una fila en la tabla
             data.forEach(usuario => {
                 let fila = `<tr>
                     <td>${usuario.id}</td>
@@ -26,6 +40,33 @@ function cargarUsuarios() {
         .catch(error => console.error("Error cargando usuarios:", error));
 }
 
+// Función para filtrar los usuarios según el criterio seleccionado
+function filtrarUsuarios() {
+    let criterio = document.getElementById("filterUserType").value; // Obtener el criterio de filtro
+    let valor = document.getElementById("filterUserInput").value.toLowerCase().trim(); // Obtener el valor de búsqueda
+
+    let filas = document.querySelectorAll("#usuariosTabla tbody tr"); // Obtener todas las filas de la tabla
+
+    filas.forEach(fila => {
+        let columnaTexto = "";
+        switch (criterio) {
+            case "username":
+                columnaTexto = fila.cells[1]?.textContent.toLowerCase() || "";
+                break;
+            case "role":
+                columnaTexto = fila.cells[2]?.textContent.toLowerCase() || "";
+                break;
+            case "isActive":
+                columnaTexto = fila.cells[3]?.textContent.toLowerCase() || ""; // "Activo" o "Inactivo"
+                break;
+        }
+
+        // Mostrar solo las filas que coincidan con el filtro
+        fila.style.display = columnaTexto.includes(valor) ? "" : "none";
+    });
+}
+
+// Función para crear un nuevo usuario
 function crearUsuario() {
     let usuario = {
         username: document.getElementById("username").value,
@@ -42,8 +83,8 @@ function crearUsuario() {
     })
     .then(response => response.json())
     .then(() => {
-        cargarUsuarios();
-        limpiarFormulario();
+        cargarUsuarios(); // Recargar la lista de usuarios
+        limpiarFormulario(); // Limpiar los campos del formulario
     })
     .catch(error => {
         console.error("Error creando usuario:", error);
@@ -51,13 +92,14 @@ function crearUsuario() {
     });
 }
 
+// Función para obtener los datos de un usuario y cargarlos en el formulario para editar
 function editarUsuario(id) {
     fetch(`http://localhost:9000/api/users/${id}`)
         .then(response => response.json())
         .then(usuario => {
-            document.getElementById("userId").value = usuario.id; // Campo oculto
+            document.getElementById("userId").value = usuario.id; // Guardar el ID en un campo oculto
             document.getElementById("username").value = usuario.username;
-            document.getElementById("password").value = ""; // No mostrar la contraseña
+            document.getElementById("password").value = ""; // No mostrar la contraseña por seguridad
             document.getElementById("role").value = usuario.role;
             document.getElementById("isActive").value = usuario.isActive ? "true" : "false";
             document.getElementById("person_id").value = usuario.person ? usuario.person.id : "";
@@ -69,6 +111,7 @@ function editarUsuario(id) {
         .catch(error => console.error("Error obteniendo usuario:", error));
 }
 
+// Función para actualizar un usuario
 function actualizarUsuario() {
     let id = document.getElementById("userId").value;
     let password = document.getElementById("password").value;
@@ -80,6 +123,7 @@ function actualizarUsuario() {
         person: { id: parseInt(document.getElementById("person_id").value) || null }
     };
 
+    // Solo enviar la contraseña si el usuario ha ingresado una nueva
     if (password.trim() !== "") {
         usuario.password = password;
     }
@@ -91,8 +135,8 @@ function actualizarUsuario() {
     })
     .then(response => response.json())
     .then(() => {
-        cargarUsuarios();
-        limpiarFormulario();
+        cargarUsuarios(); // Recargar la tabla después de actualizar
+        limpiarFormulario(); // Limpiar el formulario
     })
     .catch(error => {
         console.error("Error actualizando usuario:", error);
@@ -100,8 +144,9 @@ function actualizarUsuario() {
     });
 }
 
+// Función para eliminar un usuario
 function eliminarUsuario(id) {
-    if (!confirm("¿Seguro que deseas eliminar este usuario?")) return;
+    if (!confirm("¿Seguro que deseas eliminar este usuario?")) return; // Confirmar eliminación
 
     fetch(`http://localhost:9000/api/users/${id}`, {
         method: "DELETE"
@@ -110,7 +155,7 @@ function eliminarUsuario(id) {
         if (!response.ok) {
             return response.text().then(text => { throw new Error(text); });
         }
-        cargarUsuarios();
+        cargarUsuarios(); // Recargar la lista después de eliminar
     })
     .catch(error => {
         console.error("Error eliminando usuario:", error);
@@ -118,9 +163,10 @@ function eliminarUsuario(id) {
     });
 }
 
+// Función para limpiar los campos del formulario y resetear botones
 function limpiarFormulario() {
-    document.getElementById("usuarioForm").reset();
-    document.getElementById("userId").value = "";
+    document.getElementById("usuarioForm").reset(); // Resetear el formulario
+    document.getElementById("userId").value = ""; // Limpiar el ID oculto
 
     // Habilitar botón "Crear" y deshabilitar "Actualizar"
     document.getElementById("btnCrear").disabled = false;

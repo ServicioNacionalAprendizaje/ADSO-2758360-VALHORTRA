@@ -74,14 +74,14 @@ $(document).ready(function () {
 
 // Redirección al hacer clic en el botón
 $(document).ready(function () {
-    var btnGestionAgentes = $("#btnGestionAgentes");
-    if (btnGestionAgentes.length) {
-        btnGestionAgentes.click(function () {
-            console.log("Botón 'Gestionar Agentes' clickeado"); // Para depuración
-            window.location.href = "agente.html"; // Asegúrate de que agentes.html esté en /view/
+    var btnIniciarTarea = $("#btnIniciarTarea");
+    if (btnIniciarTarea.length) {
+        btnIniciarTarea.click(function () {
+            console.log("Botón 'Iniciar Tarea' clickeado"); // Para depuración
+            window.location.href = "iniciar_tarea.html"; // Asegúrate de que agentes.html esté en /view/
         });
     } else {
-        console.error("El botón 'btnGestionAgentes' no existe en esta página.");
+        console.error("El botón 'btnIniciarTarea' no existe en esta página.");
     }
 });
 

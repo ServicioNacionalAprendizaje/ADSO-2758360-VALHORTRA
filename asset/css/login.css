@@ -1,0 +1,53 @@
+/* Fondo animado para toda la página */
+body {
+    background: url("https://scontent.feoh1-1.fna.fbcdn.net/v/t39.30808-6/461929307_1105571534908181_6513253571861224317_n.jpg?stp=dst-jpg_p526x296_tt6&_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFybR2NyEi8p3wmRBG8FXKBxlPMi79ny9nGU8yLv2fL2eUbe9SpiyXO2mhhBEEy1XZwR6TqZgNPgBQFcY9FnqzM&_nc_ohc=uClL14QXEZ0Q7kNvgFW62Nr&_nc_oc=Adi8z4mXOyCXHX13p8ihF4lmxFpbpwBkWixsVO1VWYdiUlJ-G6FgNMPF47uYfdGu9qbpy0GDhD2pxe_O5SkXQ9Ga&_nc_zt=23&_nc_ht=scontent.feoh1-1.fna&_nc_gid=Ay376gDWyylwaCq8VrDOsFA&oh=00_AYBxdT3GcE4-kme2zOz9MYJsLafN0WfsXsxbM2SgSSdKLQ&oe=67BCFA3A") no-repeat center center fixed;
+    background-size: cover;
+    animation: animatedBackground 10s linear infinite alternate;
+    min-height: 100vh; /* Asegura que cubra toda la pantalla */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Contenedor transparente con efecto vidrio */
+.container.login-container {
+    max-width: 400px; /* 🔹 Reduce el ancho para que ocupe menos espacio */
+    width: 100%;
+    background: rgba(255, 255, 255, 0.2); /* Fondo translúcido */
+    border-radius: 15px; /* Bordes redondeados */
+    padding: 30px; /* Espaciado interno */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Sombra ligera */
+    backdrop-filter: blur(10px); /* Efecto vidrio */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Borde sutil */
+    
+    /* 🔹 Centrado */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+
+/* Animación del fondo */
+@keyframes animatedBackground {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+footer {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Fondo oscuro semi-transparente */
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
