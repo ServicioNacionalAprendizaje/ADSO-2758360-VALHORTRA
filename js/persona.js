@@ -1,8 +1,12 @@
+// Autor: Juan David Herrera
+
 const API_URL = 'http://localhost:9000/api/person';
 
 document.addEventListener("DOMContentLoaded", function () {
     obtenerPersonas();
 });
+
+// Obtener personas
 
 function obtenerPersonas() {
     console.log("Obteniendo datos de la base de datos...");
@@ -45,6 +49,8 @@ function obtenerPersonas() {
     });
 }
 
+// Cargar persona
+
 function cargarPersona(id) {
     $.ajax({
         url: `${API_URL}/${id}`,
@@ -65,6 +71,8 @@ function cargarPersona(id) {
         }
     });
 }
+
+// Crear persona
 
 function crearPersona() {
     const persona = {
@@ -97,7 +105,7 @@ function crearPersona() {
     });
 }
 
-
+// Actualizar persona
 
 function actualizarPersona(id) {
     const persona = {
@@ -127,6 +135,8 @@ function actualizarPersona(id) {
     });
 }
 
+// Eliminar persona
+
 function eliminarPersona(id) {
     if (confirm("¿Seguro que deseas eliminar esta persona?")) {
         $.ajax({
@@ -142,3 +152,32 @@ function eliminarPersona(id) {
         });
     }
 }
+
+
+// Filtrar personas
+
+document.getElementById("filterInput").addEventListener("keyup", filtrarPersonas);
+document.getElementById("filterButton").addEventListener("click", filtrarPersonas);
+
+function filtrarPersonas() {
+    let tipoFiltro = document.getElementById("filterType").value; // Tipo de filtro seleccionado
+    let filtro = document.getElementById("filterInput").value.toLowerCase(); // Texto ingresado
+    let filas = document.querySelectorAll("#personasTabla tbody tr");
+
+    filas.forEach(fila => {
+        let columnaIndex;
+
+        switch (tipoFiltro) {
+            case "nombre": columnaIndex = 1; break; // Columna del nombre
+            case "apellido": columnaIndex = 2; break; // Columna del apellido
+            case "documento": columnaIndex = 3; break; // Columna del documento
+            default: return;
+        }
+
+        let valorColumna = fila.children[columnaIndex].textContent.toLowerCase();
+
+        // Mostrar u ocultar la fila según si coincide con el filtro
+        fila.style.display = valorColumna.includes(filtro) ? "" : "none";
+    });
+}
+

@@ -33,7 +33,14 @@
                 </select>
             </div>
             <div class="d-flex justify-content-between">
-                <button type="button" class="btn btn-primary btn-interactive" onclick="crearTarea()">Crear Tarea</button>
+                <form id="taskForm">
+                    <!-- Otros campos del formulario -->
+                    <button id="submitBtn" class="btn btn-primary" onclick="crearTarea()">Crear Tarea</button>
+                    <button id="btnActualizar" class="btn btn-success" type="button" disabled onclick="actualizarTarea(editingTaskId)">
+                    Actualizar Tarea
+                    </button>
+                </form>
+                
             </div>
         </form>
 
@@ -64,5 +71,6 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
     <script src="../js/asignar_tarea.js" defer></script>
+
 </body>
 </html>

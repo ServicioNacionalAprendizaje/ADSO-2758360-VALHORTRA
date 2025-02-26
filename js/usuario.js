@@ -40,31 +40,29 @@ function cargarUsuarios() {
         .catch(error => console.error("Error cargando usuarios:", error));
 }
 
-// Función para filtrar los usuarios según el criterio seleccionado
 function filtrarUsuarios() {
-    let criterio = document.getElementById("filterUserType").value; // Obtener el criterio de filtro
-    let valor = document.getElementById("filterUserInput").value.toLowerCase().trim(); // Obtener el valor de búsqueda
+    let criterio = document.getElementById("filterUserType")?.value || ""; // Obtener el criterio
+    let valor = document.getElementById("filterUserInput")?.value.toLowerCase().trim() || ""; // Valor de búsqueda
 
-    let filas = document.querySelectorAll("#usuariosTabla tbody tr"); // Obtener todas las filas de la tabla
+    let filas = document.querySelectorAll("#usuariosTabla tbody tr"); // Obtener filas
+
+    if (!criterio || !filas.length) return; // Salir si no hay criterio o filas
+
+    // Mapeo de criterios a índices de columnas
+    const criterioColumnas = {
+        "username": 1,
+        "role": 2,
+        "isActive": 3
+    };
+
+    let columnaIndex = criterioColumnas[criterio]; // Obtener el índice de la columna
 
     filas.forEach(fila => {
-        let columnaTexto = "";
-        switch (criterio) {
-            case "username":
-                columnaTexto = fila.cells[1]?.textContent.toLowerCase() || "";
-                break;
-            case "role":
-                columnaTexto = fila.cells[2]?.textContent.toLowerCase() || "";
-                break;
-            case "isActive":
-                columnaTexto = fila.cells[3]?.textContent.toLowerCase() || ""; // "Activo" o "Inactivo"
-                break;
-        }
-
-        // Mostrar solo las filas que coincidan con el filtro
-        fila.style.display = columnaTexto.includes(valor) ? "" : "none";
+        let columnaTexto = fila.cells[columnaIndex]?.textContent.toLowerCase().trim() || ""; // Obtener el texto de la celda
+        fila.style.display = columnaTexto.includes(valor) ? "" : "none"; // Filtrar
     });
 }
+
 
 // Función para crear un nuevo usuario
 function crearUsuario() {
