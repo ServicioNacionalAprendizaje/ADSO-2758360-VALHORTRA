@@ -8,13 +8,17 @@
     <link rel="stylesheet" href="../asset/css/styles.css">
     <link rel="stylesheet" href="../asset/css/login.css">
 </head>
-<body class="d-flex flex-column min-vh-100 login-background">
+<body class="d-flex flex-column min-vh-100"
+      style="background: url('https://scontent.feoh3-1.fna.fbcdn.net/v/t39.30808-6/461929307_1105571534908181_6513253571861224317_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFybR2NyEi8p3wmRBG8FXKBxlPMi79ny9nGU8yLv2fL2eUbe9SpiyXO2mhhBEEy1XZwR6TqZgNPgBQFcY9FnqzM&_nc_ohc=ATqflKd3dhcQ7kNvgHdTRVv&_nc_oc=AdiYsZ92lnXq6qzbGD-Hg8Vg1EoBkYlXPMKZxvrjHp-qZ_1-eXWQQWn6uV6DU5RTRpI&_nc_zt=23&_nc_ht=scontent.feoh3-1.fna&_nc_gid=AlKoDHh8XH965gnjewfOYn1&oh=00_AYAgMAFhH2GAIcl68PMCdDi7SJpiwIEIVU24da9Z0g5yUg&oe=67C6DD7A') 
+             no-repeat center center fixed; 
+             background-size: cover; 
+             background-attachment: fixed;">
 
     <div class="container login-container mt-5 flex-grow-1 d-flex flex-column align-items-center justify-content-center">
         <h1 class="text-center text-primary">GoFastApp</h1>
         <img src="../asset/img/logogofastgo.jpg" alt="Logo de la Empresa" class="logo">
         
-        <h4 class="text-center text-primary">Iniciar Sesion</h4>
+        <h4 class="text-center text-primary">Iniciar Sesión</h4>
         
         <form id="loginForm" class="mb-4 p-4 rounded shadow bg-light" onsubmit="return false;">
             <div class="mb-3">
@@ -28,16 +32,13 @@
             <button type="submit" class="btn btn-primary w-100">Ingresar</button>
             <p id="errorMessage" class="text-danger text-center mt-2" style="display: none;">Usuario o contraseña incorrectos</p>
         </form>
-
     </div>
 
-    <footer class="text-center py-3 ">
+    <footer class="text-center py-3">
         <p>&copy; 2025 Go Fast Go. Todos los derechos reservados.</p>
     </footer>
-   
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
     <script src="../js/login.js" defer></script>
 </body>
-
 </html>

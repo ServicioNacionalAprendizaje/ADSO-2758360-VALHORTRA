@@ -1,9 +1,11 @@
 /* Fondo animado para toda la página */
+* Fondo animado */
 body {
-    background: url("https://scontent.feoh1-1.fna.fbcdn.net/v/t39.30808-6/461929307_1105571534908181_6513253571861224317_n.jpg?stp=dst-jpg_p526x296_tt6&_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFybR2NyEi8p3wmRBG8FXKBxlPMi79ny9nGU8yLv2fL2eUbe9SpiyXO2mhhBEEy1XZwR6TqZgNPgBQFcY9FnqzM&_nc_ohc=uClL14QXEZ0Q7kNvgFW62Nr&_nc_oc=Adi8z4mXOyCXHX13p8ihF4lmxFpbpwBkWixsVO1VWYdiUlJ-G6FgNMPF47uYfdGu9qbpy0GDhD2pxe_O5SkXQ9Ga&_nc_zt=23&_nc_ht=scontent.feoh1-1.fna&_nc_gid=Ay376gDWyylwaCq8VrDOsFA&oh=00_AYBxdT3GcE4-kme2zOz9MYJsLafN0WfsXsxbM2SgSSdKLQ&oe=67BCFA3A") no-repeat center center fixed;
+    background: url("https://scontent.feoh3-1.fna.fbcdn.net/v/t39.30808-6/461929307_1105571534908181_6513253571861224317_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFybR2NyEi8p3wmRBG8FXKBxlPMi79ny9nGU8yLv2fL2eUbe9SpiyXO2mhhBEEy1XZwR6TqZgNPgBQFcY9FnqzM&_nc_ohc=ATqflKd3dhcQ7kNvgHdTRVv&_nc_oc=AdiYsZ92lnXq6qzbGD-Hg8Vg1EoBkYlXPMKZxvrjHp-qZ_1-eXWQQWn6uV6DU5RTRpI&_nc_zt=23&_nc_ht=scontent.feoh3-1.fna&_nc_gid=AlKoDHh8XH965gnjewfOYn1&oh=00_AYAgMAFhH2GAIcl68PMCdDi7SJpiwIEIVU24da9Z0g5yUg&oe=67C6DD7A") 
+        no-repeat center center fixed;
     background-size: cover;
-    animation: animatedBackground 10s linear infinite alternate;
-    min-height: 100vh; /* Asegura que cubra toda la pantalla */
+    animation: animatedBackground 20s linear infinite alternate;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
